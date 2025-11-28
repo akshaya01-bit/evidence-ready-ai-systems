@@ -17,10 +17,13 @@ The paper proposes design principles, an architecture, and an evaluation plan fo
   - `Evidence_Ready_AI_Systems.pdf` — current version of the concept paper.
 - `schema/`
   - (v0.2.0+) SQL definitions for fact/dimension tables.
+  - `events_schema.yaml` — logging schema for raw events that feed the tables.
+
 - `synthetic_data/`
   - (v0.3.0+) scripts and example synthetic datasets.
 - `notebooks/`
   - `example_analysis.py` — example analysis using the synthetic data.
+- `check_data_quality.py` — basic data quality checks for the synthetic tables.
 - `config/`
   - `experiments.yaml` — example configuration for experiments and metrics.
 

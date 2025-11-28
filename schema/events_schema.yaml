@@ -1,0 +1,79 @@
+# Logging schema for evidence-ready AI systems.
+# This describes the raw events that ultimately populate the fact/dimension tables.
+
+global_keys:
+  - name: user_id
+    type: string
+    description: Unique identifier for the end-user or agent.
+  - name: session_id
+    type: string
+    description: Interaction session identifier.
+  - name: task_id
+    type: string
+    description: Business task or ticket identifier.
+  - name: request_id
+    type: string
+    description: Unique identifier for an AI request/response pair.
+  - name: timestamp
+    type: datetime
+    description: Event timestamp in ISO-8601.
+
+event_types:
+  - name: ai_request
+    description: Model invocation from a client application.
+    fields:
+      - name: model_version
+        type: string
+        required: true
+      - name: prompt_template_id
+        type: string
+        required: false
+      - name: task_type
+        type: string
+        required: false
+      - name: input_tokens
+        type: integer
+        required: false
+
+  - name: ai_response
+    description: Model response, including quality / safety flags.
+    fields:
+      - name: response_tokens
+        type: integer
+        required: false
+      - name: latency_ms
+        type: integer
+        required: true
+      - name: safety_blocked
+        type: boolean
+        required: false
+      - name: model_confidence
+        type: float
+        required: false
+
+  - name: user_action
+    description: How the human reacted to the AI suggestion.
+    fields:
+      - name: action_type
+        type: string
+        allowed_values: [accept, edit, ignore, escalate]
+        required: true
+      - name: edit_distance
+        type: float
+        required: false
+      - name: escalation_flag
+        type: boolean
+        required: false
+
+  - name: experiment_assignment
+    description: Assignment of a user/task to an experiment arm.
+    fields:
+      - name: experiment_id
+        type: string
+        required: true
+      - name: arm_id
+        type: string
+        required: true
+      - name: targeting_rules_version
+        type: string
+        required: false
