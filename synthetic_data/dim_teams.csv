@@ -1,0 +1,6 @@
+team_id,function,queue_type,lead_name
+team_1,internal_support,triage,Lead_team_1
+team_2,internal_support,specialised,Lead_team_2
+team_3,internal_support,triage,Lead_team_3
+team_4,internal_support,triage,Lead_team_4
+team_5,internal_support,triage,Lead_team_5
