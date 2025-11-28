@@ -26,6 +26,10 @@ The paper proposes design principles, an architecture, and an evaluation plan fo
 - `check_data_quality.py` — basic data quality checks for the synthetic tables.
 - `config/`
   - `experiments.yaml` — example configuration for experiments and metrics.
+- `metrics.yaml` — registry of core metrics (quality, resolution time, escalation, acceptance).
+- `reports/`
+  - `triage_scenario_audit.md` — example audit report using the synthetic triage data.
+- `metrics.yaml` — registry of core metrics (quality, resolution time, escalation, acceptance).
 
 ## Version roadmap
 

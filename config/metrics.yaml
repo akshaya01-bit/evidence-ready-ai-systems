@@ -1,0 +1,39 @@
+# Metrics registry for evidence-ready AI evaluations.
+
+metrics:
+  - name: outcome_quality_score
+    description: >
+      Scalar score summarising the quality of the AI-assisted outcome for a task
+      (e.g., correctness, usefulness), here generated synthetically.
+    type: continuous
+    direction: higher_is_better
+    table: fact_interactions
+    field: outcome_quality_score
+
+  - name: resolution_time_sec
+    description: >
+      Time between task creation and resolution, in seconds.
+    type: continuous
+    direction: lower_is_better
+    table: fact_tasks
+    field: resolution_time_sec
+
+  - name: escalation_rate
+    description: >
+      Fraction of interactions with action_type = 'escalate' for a given slice.
+    type: rate
+    direction: lower_is_better
+    derived_from:
+      table: fact_interactions
+      numerator_condition: action_type == "escalate"
+      denominator: count_rows
+
+  - name: accept_rate
+    description: >
+      Fraction of interactions with action_type = 'accept' for a given slice.
+    type: rate
+    direction: higher_is_better
+    derived_from:
+      table: fact_interactions
+      numerator_condition: action_type == "accept"
+      denominator: count_rows
