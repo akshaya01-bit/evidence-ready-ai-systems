@@ -20,9 +20,9 @@ The paper proposes design principles, an architecture, and an evaluation plan fo
 - `synthetic_data/`
   - (v0.3.0+) scripts and example synthetic datasets.
 - `notebooks/`
-  - (v1.0.0+) example analysis scripts using the synthetic data.
+  - `example_analysis.py` — example analysis using the synthetic data.
 - `config/`
-  - (v1.0.0+) configuration files for experiments, metrics, and slices.
+  - `experiments.yaml` — example configuration for experiments and metrics.
 
 ## Version roadmap
 
